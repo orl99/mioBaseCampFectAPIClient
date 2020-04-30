@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mioBaseCampFectAPIClient"
+    }
+  },
+  "defaultProject": "mioBaseCampFectAPIClient",
+  "cli": {
+    "analytics": false
+  }
 }
