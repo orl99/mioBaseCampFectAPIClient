@@ -8,6 +8,6 @@ import { OauthBasecampService } from './services/oauth-basecamp.service';
 export class AppComponent {
   title = 'mioBaseCampFectAPIClient';
   constructor(private BSOauth: OauthBasecampService) {
-    BSOauth.getBasecampToken()
+    BSOauth.getBasecampToken();
   }
 }
