@@ -33,5 +33,8 @@ export class AppComponent implements OnInit {
   async getTodosBtn() {
     const response = await this.BSService.getTodos();
     console.log('Response', response);
+    if (!!response) {
+      // this.BSService.saveTodosGS()
+    }
   }
 }

@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { SaveTodos } from 'src/app/models/saveTodos.model';
+import { environment } from 'src/environments/environment';
+
+const APIEndpoint = environment.PHPAPIEndpoint;
 const BCProxy = 'https://divine-haze-d70d.mio-agency-proxy.workers.dev/?';
 @Injectable({
   providedIn: 'root'
@@ -28,10 +32,16 @@ export class BasecampService {
 
   async getTodos() {
     console.log(this.httpBCHeaders);
-    // this.httpHeaders = new Headers();
-    const response = await this.http$.get(`${BCProxy}https://3.basecampapi.com/4507993/buckets/16967348/todosets/2640059704/todolists.json`, {
+    // Todo Change Project ID and Task ID
+    const response =
+    await this.http$.get(`${BCProxy}https://3.basecampapi.com/4507993/buckets/16967348/todosets/2640059704/todolists.json`, {
       headers: this.httpBCHeaders
     }).toPromise();
+    return response;
+  }
+
+  async saveTodosGS(dto: SaveTodos[]) {
+    const response = await this.http$.post(`${APIEndpoint}saveTodo`, {dto}).toPromise();
     return response;
   }
 }
